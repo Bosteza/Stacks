@@ -1,0 +1,20 @@
+public class Program {
+
+    public static void main(String[] args) {
+        MyStack myStack = new MyStack();
+
+        // Llena el stack con valores aleatorios
+        myStack.rand();
+        System.out.println("Stack original lleno con valores aleatorios:");
+        myStack.printStack();
+
+
+        // Permite al usuario cambiar el primer valor del stack y lo imprime después
+        myStack.push();
+        System.out.println("Stack después de modificar el primer elemento:");
+        myStack.printStack();
+  
+       
+ 
+    }
+}
