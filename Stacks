@@ -1,0 +1,63 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class MyStack {
+    int top;
+    int MAX = 5; // Este valor determina el tamaño máximo del stack
+    char[] stack;
+    Scanner scan = new Scanner(System.in);
+
+    // Constructor
+    public MyStack() {
+        this.top = 0;
+        this.stack = new char[MAX];
+    }
+
+    // Método para modificar el primer elemento del stack
+    public void push() {
+        if (top > 0) { // Asegurarse de que haya al menos un elemento en el stack
+            System.out.println("Ingresa un nuevo elemento para el fondo del stack:");
+            char data = scan.next().charAt(0); // Lee el primer carácter de la entrada del usuario
+            System.out.println("Elemento a eliminar"+ stack[top]);
+            // Cambia el primer valor del stack
+            stack[0] = data;
+           
+           
+        } else {
+            System.out.println("El stack está vacío, no se puede cambiar el primer elemento.");
+        }
+    }
+
+    public char pop() {
+        if (top == 0) {
+            System.out.println("Stack is empty");
+            return '\0'; // Valor nulo para char, indicando que no hay elementos para retirar
+        } else {
+            top--;
+            return stack[top];
+        }
+    }
+
+    // Método para llenar el stack con números aleatorios del 0 al 9
+    public void rand() {
+        Random rand = new Random();
+        while (top < MAX) {
+            int randomNumber = rand.nextInt(10); // Genera un número aleatorio del 0 al 9
+            char randomChar = (char) ('0' + randomNumber); // Convierte el número a char
+            stack[top] = randomChar;
+            top++;
+        }
+    }
+    public void printStack() {
+        if (top == 0) {
+            System.out.println("El stack está vacío.");
+        } else {
+            System.out.print("Contenido del stack: ");
+            for (int i = 0; i < top; i++) {
+                System.out.print(stack[i] + " ");
+            }
+            System.out.println(); // Salto de línea después de imprimir el stack
+        }
+    }
+}
+
